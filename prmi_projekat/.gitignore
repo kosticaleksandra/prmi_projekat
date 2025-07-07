@@ -1,0 +1,6 @@
+﻿# Visual Studio folderi
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
