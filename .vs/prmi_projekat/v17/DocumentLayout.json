@@ -3,8 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\Kostic\\source\\repos\\kosticaleksandra\\prmi_projekat\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Kostic\\source\\repos\\kosticaleksandra\\prmi_projekat\\prmi_projekat\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:prmi_projekat\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Kostic\\source\\repos\\kosticaleksandra\\prmi_projekat\\prmi_projekat\\Klase\\Enums.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:prmi_projekat\\Klase\\Enums.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Kostic\\source\\repos\\kosticaleksandra\\prmi_projekat\\prmi_projekat\\Server\\Server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:prmi_projekat\\Server\\Server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Kostic\\source\\repos\\kosticaleksandra\\prmi_projekat\\prmi_projekat\\PacketSniffer\\PacketSniffer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:prmi_projekat\\PacketSniffer\\PacketSniffer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Kostic\\source\\repos\\kosticaleksandra\\prmi_projekat\\prmi_projekat\\Klijent\\Klijent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:prmi_projekat\\Klijent\\Klijent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -22,16 +34,52 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": ".gitignore",
-              "DocumentMoniker": "C:\\Users\\Kostic\\source\\repos\\kosticaleksandra\\prmi_projekat\\prmi_projekat\\.gitignore",
-              "RelativeDocumentMoniker": "prmi_projekat\\.gitignore",
-              "ToolTip": "C:\\Users\\Kostic\\source\\repos\\kosticaleksandra\\prmi_projekat\\prmi_projekat\\.gitignore",
-              "RelativeToolTip": "prmi_projekat\\.gitignore",
+              "DocumentIndex": 3,
+              "Title": "Klijent.cs",
+              "DocumentMoniker": "C:\\Users\\Kostic\\source\\repos\\kosticaleksandra\\prmi_projekat\\prmi_projekat\\Klijent\\Klijent.cs",
+              "RelativeDocumentMoniker": "prmi_projekat\\Klijent\\Klijent.cs",
+              "ToolTip": "C:\\Users\\Kostic\\source\\repos\\kosticaleksandra\\prmi_projekat\\prmi_projekat\\Klijent\\Klijent.cs",
+              "RelativeToolTip": "prmi_projekat\\Klijent\\Klijent.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-07-07T09:24:28.941Z",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-07T16:29:50.004Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Enums.cs",
+              "DocumentMoniker": "C:\\Users\\Kostic\\source\\repos\\kosticaleksandra\\prmi_projekat\\prmi_projekat\\Klase\\Enums.cs",
+              "RelativeDocumentMoniker": "prmi_projekat\\Klase\\Enums.cs",
+              "ToolTip": "C:\\Users\\Kostic\\source\\repos\\kosticaleksandra\\prmi_projekat\\prmi_projekat\\Klase\\Enums.cs",
+              "RelativeToolTip": "prmi_projekat\\Klase\\Enums.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-07T16:29:01.294Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PacketSniffer.cs",
+              "DocumentMoniker": "C:\\Users\\Kostic\\source\\repos\\kosticaleksandra\\prmi_projekat\\prmi_projekat\\PacketSniffer\\PacketSniffer.cs",
+              "RelativeDocumentMoniker": "prmi_projekat\\PacketSniffer\\PacketSniffer.cs",
+              "ToolTip": "C:\\Users\\Kostic\\source\\repos\\kosticaleksandra\\prmi_projekat\\prmi_projekat\\PacketSniffer\\PacketSniffer.cs",
+              "RelativeToolTip": "prmi_projekat\\PacketSniffer\\PacketSniffer.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-07T16:30:00.83Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Server.cs",
+              "DocumentMoniker": "C:\\Users\\Kostic\\source\\repos\\kosticaleksandra\\prmi_projekat\\prmi_projekat\\Server\\Server.cs",
+              "RelativeDocumentMoniker": "prmi_projekat\\Server\\Server.cs",
+              "ToolTip": "C:\\Users\\Kostic\\source\\repos\\kosticaleksandra\\prmi_projekat\\prmi_projekat\\Server\\Server.cs",
+              "RelativeToolTip": "prmi_projekat\\Server\\Server.cs",
+              "ViewState": "AQIAAC4AAAAAAAAAAAAowDsAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-07T16:30:13.664Z"
             }
           ]
         }

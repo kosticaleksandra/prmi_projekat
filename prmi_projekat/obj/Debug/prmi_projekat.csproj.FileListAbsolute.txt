@@ -1,0 +1,2 @@
+C:\Users\Kostic\Source\Repos\kosticaleksandra\prmi_projekat\prmi_projekat\obj\Debug\prmi_projekat.csproj.AssemblyReference.cache
+C:\Users\Kostic\Source\Repos\kosticaleksandra\prmi_projekat\prmi_projekat\obj\Debug\prmi_projekat.csproj.CoreCompileInputs.cache

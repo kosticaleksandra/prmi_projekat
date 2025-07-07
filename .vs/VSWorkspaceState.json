@@ -1,8 +1,12 @@
 {
   "ExpandedNodes": [
     "",
-    "\\prmi_projekat"
+    "\\prmi_projekat",
+    "\\prmi_projekat\\Klase",
+    "\\prmi_projekat\\Klijent",
+    "\\prmi_projekat\\PacketSniffer",
+    "\\prmi_projekat\\Server"
   ],
-  "SelectedNode": "\\prmi_projekat\\App.config",
+  "SelectedNode": "\\prmi_projekat\\prmi_projekat.sln",
   "PreviewInSolutionExplorer": false
 }
