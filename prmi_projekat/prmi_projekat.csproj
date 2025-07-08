@@ -43,8 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="Klase\Enum.cs" />
+    <Compile Include="Klijent\Klijent.cs" />
+    <Compile Include="PacketSniffer\PacketSniffer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Servis\Servis.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

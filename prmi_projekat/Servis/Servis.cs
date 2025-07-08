@@ -1,15 +1,17 @@
-﻿using System;
-using System.Collections.Concurrent;
+﻿using prmi_projekat.Klase;
+using System;
+using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 using System.Net.Sockets;
+using System.Net;
+using System.Text;
 using System.Threading.Tasks;
-using Klase;
 
-namespace Server
+namespace prmi_projekat.Servis
 {
-	class Program
-	{
+    class Servis
+    {
+        {
         static void Main(string[] args)
         {
             Console.WriteLine("Izaberi protokol za komunikaciju (TCP/UDP):");
@@ -56,5 +58,7 @@ namespace Server
 
             return "127.0.0.1";
         }
+    }  
+
     }
-}
+

@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace prmi_projekat.Klijent
+namespace prmi_projekat.Klase
 {
-    internal class Klijent
+    public enum Protocol
     {
+        TCP,
+        UDP
     }
+
 }

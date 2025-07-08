@@ -2,11 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\prmi_projekat",
-    "\\prmi_projekat\\Klase",
-    "\\prmi_projekat\\Klijent",
-    "\\prmi_projekat\\PacketSniffer",
-    "\\prmi_projekat\\Server"
+    "\\prmi_projekat\\Properties"
   ],
-  "SelectedNode": "\\prmi_projekat\\prmi_projekat.sln",
+  "SelectedNode": "\\prmi_projekat\\.gitignore",
   "PreviewInSolutionExplorer": false
 }
