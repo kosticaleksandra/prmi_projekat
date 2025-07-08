@@ -2,5 +2,5 @@
 
 public class Klijent
 {
-	int id;
+	
 }
