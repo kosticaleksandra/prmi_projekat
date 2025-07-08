@@ -3,8 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Kostic\\source\\repos\\kosticaleksandra\\prmi_projekat\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Kostic\\source\\repos\\kosticaleksandra\\prmi_projekat\\prmi_projekat\\Properties\\AssemblyInfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:prmi_projekat\\Properties\\AssemblyInfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{732EBCFF-6AD4-4F08-9918-0FBA7C6E9748}|Solution Items{732EBCFF-6AD4-4F08-9918-0FBA7C6E9748}|C:\\Users\\Kostic\\Source\\Repos\\kosticaleksandra\\prmi_projekat\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{732EBCFF-6AD4-4F08-9918-0FBA7C6E9748}|Solution Items{732EBCFF-6AD4-4F08-9918-0FBA7C6E9748}|solutionrelative:Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Kostic\\source\\repos\\kosticaleksandra\\prmi_projekat\\Klijent\\Klijent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Klijent\\Klijent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,15 +27,25 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "AssemblyInfo.cs",
-              "DocumentMoniker": "C:\\Users\\Kostic\\source\\repos\\kosticaleksandra\\prmi_projekat\\prmi_projekat\\Properties\\AssemblyInfo.cs",
-              "RelativeDocumentMoniker": "prmi_projekat\\Properties\\AssemblyInfo.cs",
-              "ToolTip": "C:\\Users\\Kostic\\source\\repos\\kosticaleksandra\\prmi_projekat\\prmi_projekat\\Properties\\AssemblyInfo.cs",
-              "RelativeToolTip": "prmi_projekat\\Properties\\AssemblyInfo.cs",
-              "ViewState": "AQIAABIAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Kostic\\source\\repos\\kosticaleksandra\\prmi_projekat\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\Kostic\\source\\repos\\kosticaleksandra\\prmi_projekat\\Program.cs",
+              "RelativeToolTip": "Program.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-08T09:56:34.994Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-08T12:46:26.678Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Klijent.cs",
+              "DocumentMoniker": "C:\\Users\\Kostic\\source\\repos\\kosticaleksandra\\prmi_projekat\\Klijent\\Klijent.cs",
+              "RelativeDocumentMoniker": "Klijent\\Klijent.cs",
+              "ToolTip": "C:\\Users\\Kostic\\source\\repos\\kosticaleksandra\\prmi_projekat\\Klijent\\Klijent.cs",
+              "RelativeToolTip": "Klijent\\Klijent.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-08T12:46:19.988Z"
             }
           ]
         }
