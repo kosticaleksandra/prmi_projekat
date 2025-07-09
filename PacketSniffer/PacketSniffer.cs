@@ -6,6 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using PcapDotNet.Core;  
 using PcapDotNet.Packets;
+using PcapDotNet.Packets.Ethernet;
+using PcapDotNet.Packets.IpV4;
+using PcapDotNet.Packets.Transport;
 
 namespace PacketSniffer
 {
@@ -64,7 +67,59 @@ namespace PacketSniffer
         private static void PacketHandler(Packet packet)
         {
             Console.WriteLine($"Presretnut paket: {packet.Timestamp}, dužina: {packet.Length}");
-            // Ovde možeš dodatno parsirati paket i ispisati MAC, IP adrese, portove itd.
+            // ********* DODAT ZADATAK 6 - ispis detalja paketa *********
+
+            // MAC adrese
+            EthernetDatagram eth = packet.Ethernet;
+            if (eth != null)
+            {
+                Console.WriteLine($"MAC pošiljalac: {eth.Source}");
+                Console.WriteLine($"MAC primalac: {eth.Destination}");
+            }
+            else
+            {
+                Console.WriteLine("Nema Ethernet zaglavlja.");
+            }
+
+            // IP adrese i portovi
+            IpV4Datagram ip = packet.Ethernet?.IpV4;
+            if (ip != null)
+            {
+                Console.WriteLine($"IP pošiljalac: {ip.Source}");
+                Console.WriteLine($"IP primalac: {ip.Destination}");
+                Console.WriteLine($"Transportni protokol: {ip.Protocol}");
+
+                // TCP ili UDP portovi
+                if (ip.Protocol == PcapDotNet.Packets.IpV4.IpV4Protocol.Tcp)
+                {
+                    TcpDatagram tcp = ip.Tcp;
+                    if (tcp != null)
+                    {
+                        Console.WriteLine($"TCP port pošiljaoca: {tcp.SourcePort}");
+                        Console.WriteLine($"TCP port primaoca: {tcp.DestinationPort}");
+                    }
+                }
+                else if (ip.Protocol == PcapDotNet.Packets.IpV4.IpV4Protocol.Udp)
+                {
+                    UdpDatagram udp = ip.Udp;
+                    if (udp != null)
+                    {
+                        Console.WriteLine($"UDP port pošiljaoca: {udp.SourcePort}");
+                        Console.WriteLine($"UDP port primaoca: {udp.DestinationPort}");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Nije TCP ni UDP protokol.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Nema IPv4 zaglavlja.");
+            }
+
+            Console.WriteLine(new string('-', 50));
+            // *************************************************************
         }
     }
 }

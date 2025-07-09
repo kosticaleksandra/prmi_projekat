@@ -38,6 +38,7 @@ namespace Klijent
                     //dodato za treci zadatak
                     NetworkStream stream = tcpKlijent.GetStream();
 
+                    //5 zad
                     Console.Write("Unesi poruku za slanje serveru: ");
                     string porukaZaSlanje = Console.ReadLine();
                     byte[] podaciZaSlanje = Encoding.UTF8.GetBytes(porukaZaSlanje);
