@@ -1,0 +1,10 @@
+C:\Users\ooo\Source\Repos\kosticaleksandra\prmi_projekat\Klijent\bin\Debug\Klijent.exe.config
+C:\Users\ooo\Source\Repos\kosticaleksandra\prmi_projekat\Klijent\bin\Debug\Klijent.exe
+C:\Users\ooo\Source\Repos\kosticaleksandra\prmi_projekat\Klijent\bin\Debug\Klijent.pdb
+C:\Users\ooo\Source\Repos\kosticaleksandra\prmi_projekat\Klijent\bin\Debug\ClassLibrary.dll
+C:\Users\ooo\Source\Repos\kosticaleksandra\prmi_projekat\Klijent\bin\Debug\ClassLibrary.pdb
+C:\Users\ooo\Source\Repos\kosticaleksandra\prmi_projekat\Klijent\obj\Debug\Klijent.csproj.AssemblyReference.cache
+C:\Users\ooo\Source\Repos\kosticaleksandra\prmi_projekat\Klijent\obj\Debug\Klijent.csproj.CoreCompileInputs.cache
+C:\Users\ooo\Source\Repos\kosticaleksandra\prmi_projekat\Klijent\obj\Debug\Klijent.csproj.Up2Date
+C:\Users\ooo\Source\Repos\kosticaleksandra\prmi_projekat\Klijent\obj\Debug\Klijent.exe
+C:\Users\ooo\Source\Repos\kosticaleksandra\prmi_projekat\Klijent\obj\Debug\Klijent.pdb

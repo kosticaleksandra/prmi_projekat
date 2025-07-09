@@ -1,0 +1,109 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\ooo\\source\\repos\\kosticaleksandra\\prmi_projekat\\prmi_projekat\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7F890927-54DF-4097-85BA-55C2EB9E441C}|prmi_projekat.csproj|c:\\users\\ooo\\source\\repos\\kosticaleksandra\\prmi_projekat\\prmi_projekat\\klijent\\klijent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7F890927-54DF-4097-85BA-55C2EB9E441C}|prmi_projekat.csproj|solutionrelative:klijent\\klijent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F890927-54DF-4097-85BA-55C2EB9E441C}|prmi_projekat.csproj|c:\\users\\ooo\\source\\repos\\kosticaleksandra\\prmi_projekat\\prmi_projekat\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7F890927-54DF-4097-85BA-55C2EB9E441C}|prmi_projekat.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F890927-54DF-4097-85BA-55C2EB9E441C}|prmi_projekat.csproj|c:\\users\\ooo\\source\\repos\\kosticaleksandra\\prmi_projekat\\prmi_projekat\\server\\server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7F890927-54DF-4097-85BA-55C2EB9E441C}|prmi_projekat.csproj|solutionrelative:server\\server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F890927-54DF-4097-85BA-55C2EB9E441C}|prmi_projekat.csproj|c:\\users\\ooo\\source\\repos\\kosticaleksandra\\prmi_projekat\\prmi_projekat\\packetsniffer\\packetsniffer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7F890927-54DF-4097-85BA-55C2EB9E441C}|prmi_projekat.csproj|solutionrelative:packetsniffer\\packetsniffer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F890927-54DF-4097-85BA-55C2EB9E441C}|prmi_projekat.csproj|c:\\users\\ooo\\source\\repos\\kosticaleksandra\\prmi_projekat\\prmi_projekat\\klase\\enums.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7F890927-54DF-4097-85BA-55C2EB9E441C}|prmi_projekat.csproj|solutionrelative:klase\\enums.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Server.cs",
+              "DocumentMoniker": "C:\\Users\\ooo\\source\\repos\\kosticaleksandra\\prmi_projekat\\prmi_projekat\\Server\\Server.cs",
+              "RelativeDocumentMoniker": "Server\\Server.cs",
+              "ToolTip": "C:\\Users\\ooo\\source\\repos\\kosticaleksandra\\prmi_projekat\\prmi_projekat\\Server\\Server.cs",
+              "RelativeToolTip": "Server\\Server.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-08T12:24:59.788Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PacketSniffer.cs",
+              "DocumentMoniker": "C:\\Users\\ooo\\source\\repos\\kosticaleksandra\\prmi_projekat\\prmi_projekat\\PacketSniffer\\PacketSniffer.cs",
+              "RelativeDocumentMoniker": "PacketSniffer\\PacketSniffer.cs",
+              "ToolTip": "C:\\Users\\ooo\\source\\repos\\kosticaleksandra\\prmi_projekat\\prmi_projekat\\PacketSniffer\\PacketSniffer.cs",
+              "RelativeToolTip": "PacketSniffer\\PacketSniffer.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-08T12:24:57.742Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Klijent.cs",
+              "DocumentMoniker": "C:\\Users\\ooo\\source\\repos\\kosticaleksandra\\prmi_projekat\\prmi_projekat\\Klijent\\Klijent.cs",
+              "RelativeDocumentMoniker": "Klijent\\Klijent.cs",
+              "ToolTip": "C:\\Users\\ooo\\source\\repos\\kosticaleksandra\\prmi_projekat\\prmi_projekat\\Klijent\\Klijent.cs",
+              "RelativeToolTip": "Klijent\\Klijent.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-08T12:24:54.744Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Enums.cs",
+              "DocumentMoniker": "C:\\Users\\ooo\\source\\repos\\kosticaleksandra\\prmi_projekat\\prmi_projekat\\Klase\\Enums.cs",
+              "RelativeDocumentMoniker": "Klase\\Enums.cs",
+              "ToolTip": "C:\\Users\\ooo\\source\\repos\\kosticaleksandra\\prmi_projekat\\prmi_projekat\\Klase\\Enums.cs",
+              "RelativeToolTip": "Klase\\Enums.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-08T12:24:48.758Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\ooo\\source\\repos\\kosticaleksandra\\prmi_projekat\\prmi_projekat\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\ooo\\source\\repos\\kosticaleksandra\\prmi_projekat\\prmi_projekat\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-08T12:18:36.146Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

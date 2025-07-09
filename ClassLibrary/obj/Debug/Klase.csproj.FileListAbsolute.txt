@@ -1,0 +1,6 @@
+C:\Users\ooo\Source\Repos\kosticaleksandra\prmi_projekat\ClassLibrary\bin\Debug\ClassLibrary.dll
+C:\Users\ooo\Source\Repos\kosticaleksandra\prmi_projekat\ClassLibrary\bin\Debug\ClassLibrary.pdb
+C:\Users\ooo\Source\Repos\kosticaleksandra\prmi_projekat\ClassLibrary\obj\Debug\Klase.csproj.AssemblyReference.cache
+C:\Users\ooo\Source\Repos\kosticaleksandra\prmi_projekat\ClassLibrary\obj\Debug\Klase.csproj.CoreCompileInputs.cache
+C:\Users\ooo\Source\Repos\kosticaleksandra\prmi_projekat\ClassLibrary\obj\Debug\ClassLibrary.dll
+C:\Users\ooo\Source\Repos\kosticaleksandra\prmi_projekat\ClassLibrary\obj\Debug\ClassLibrary.pdb

@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D37DBEA7-2CE6-4BF1-89C9-4C267589BB52}</ProjectGuid>
+    <ProjectGuid>{B92D833B-7444-48A4-8AC2-AA55C50FCFF9}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>PacketSniffer</RootNamespace>
     <AssemblyName>PacketSniffer</AssemblyName>

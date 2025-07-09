@@ -1,18 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Net;
 using System.Net.Sockets;
 using System.Text;
-//using Klase;
-using System.Threading.Tasks;
-
-namespace Klijent
+using Klase; // ako si enum stavila u poseban folder
+namespace KlijentApp
 {
-    internal class Klijent
+    class Klijent
     {
-        static void Main(string[] args)
+        static void Main()
         {
-         /*   Console.Title = "KLIJENT";
+            Console.Title = "KLIJENT";
 
             // Izbor protokola
             Console.WriteLine("Izaberi protokol za komunikaciju:");
@@ -36,6 +33,24 @@ namespace Klijent
                     tcpKlijent.Connect(ip, port); // Uspostavljanje konekcije
                     Console.WriteLine("Uspostavljena TCP konekcija sa serverom.");
                     // Ovde možeš dodati komunikaciju ako želiš
+
+                    //dodato za treci zadatak
+                    NetworkStream stream = tcpKlijent.GetStream();
+
+                    Console.Write("Unesi poruku za slanje serveru: ");
+                    string porukaZaSlanje = Console.ReadLine();
+                    byte[] podaciZaSlanje = Encoding.UTF8.GetBytes(porukaZaSlanje);
+                    stream.Write(podaciZaSlanje, 0, podaciZaSlanje.Length);
+                    Console.WriteLine("Poruka poslata.");
+
+                    byte[] buffer = new byte[1024];
+                    int bytesRead = stream.Read(buffer, 0, buffer.Length);
+                    string odgovor = Encoding.UTF8.GetString(buffer, 0, bytesRead);
+                    Console.WriteLine("Odgovor od servera: " + odgovor);
+
+                    stream.Close();
+
+                //kraj dodatka
                     tcpKlijent.Close();
                 }
                 catch (Exception ex)
@@ -48,19 +63,32 @@ namespace Klijent
                 try
                 {
                     UdpClient udp = new UdpClient();
-                    Console.WriteLine($"UDP klijent spreman za slanje poruka na {ip}:{port}");
-                    // Ovde možeš dodati kod za slanje poruka
+
+                    Console.Write("Unesi poruku za slanje UDP serveru: ");
+                    string porukaZaSlanje = Console.ReadLine();
+                    byte[] podaciZaSlanje = Encoding.UTF8.GetBytes(porukaZaSlanje);
+
+                    udp.Send(podaciZaSlanje, podaciZaSlanje.Length, ip, port);
+                    Console.WriteLine("Poruka poslata UDP serveru.");
+
+                    IPEndPoint serverEndPoint = new IPEndPoint(IPAddress.Any, 0);
+
+                    byte[] primljeniPodaci = udp.Receive(ref serverEndPoint);
+                    string odgovor = Encoding.UTF8.GetString(primljeniPodaci);
+                    Console.WriteLine("Odgovor od servera: " + odgovor);
+
                     udp.Close();
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Greška pri kreiranju UDP klijenta: " + ex.Message);
+                    Console.WriteLine("Greška pri radu sa UDP klijentom: " + ex.Message);
                 }
             }
 
+
             Console.WriteLine("Pritisni Enter za kraj...");
-            Console.ReadLine(); */ 
+            Console.ReadLine();
         }
-    } 
+    }
 
 }

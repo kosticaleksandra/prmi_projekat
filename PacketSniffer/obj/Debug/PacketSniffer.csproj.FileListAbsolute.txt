@@ -1,0 +1,7 @@
+C:\Users\ooo\Source\Repos\kosticaleksandra\prmi_projekat\PacketSniffer\bin\Debug\PacketSniffer.exe.config
+C:\Users\ooo\Source\Repos\kosticaleksandra\prmi_projekat\PacketSniffer\bin\Debug\PacketSniffer.exe
+C:\Users\ooo\Source\Repos\kosticaleksandra\prmi_projekat\PacketSniffer\bin\Debug\PacketSniffer.pdb
+C:\Users\ooo\Source\Repos\kosticaleksandra\prmi_projekat\PacketSniffer\obj\Debug\PacketSniffer.csproj.AssemblyReference.cache
+C:\Users\ooo\Source\Repos\kosticaleksandra\prmi_projekat\PacketSniffer\obj\Debug\PacketSniffer.csproj.CoreCompileInputs.cache
+C:\Users\ooo\Source\Repos\kosticaleksandra\prmi_projekat\PacketSniffer\obj\Debug\PacketSniffer.exe
+C:\Users\ooo\Source\Repos\kosticaleksandra\prmi_projekat\PacketSniffer\obj\Debug\PacketSniffer.pdb

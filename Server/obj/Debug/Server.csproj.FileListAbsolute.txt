@@ -1,0 +1,10 @@
+C:\Users\ooo\Source\Repos\kosticaleksandra\prmi_projekat\Server\bin\Debug\Server.exe.config
+C:\Users\ooo\Source\Repos\kosticaleksandra\prmi_projekat\Server\bin\Debug\Server.exe
+C:\Users\ooo\Source\Repos\kosticaleksandra\prmi_projekat\Server\bin\Debug\Server.pdb
+C:\Users\ooo\Source\Repos\kosticaleksandra\prmi_projekat\Server\bin\Debug\ClassLibrary.dll
+C:\Users\ooo\Source\Repos\kosticaleksandra\prmi_projekat\Server\bin\Debug\ClassLibrary.pdb
+C:\Users\ooo\Source\Repos\kosticaleksandra\prmi_projekat\Server\obj\Debug\Server.csproj.AssemblyReference.cache
+C:\Users\ooo\Source\Repos\kosticaleksandra\prmi_projekat\Server\obj\Debug\Server.csproj.CoreCompileInputs.cache
+C:\Users\ooo\Source\Repos\kosticaleksandra\prmi_projekat\Server\obj\Debug\Server.csproj.Up2Date
+C:\Users\ooo\Source\Repos\kosticaleksandra\prmi_projekat\Server\obj\Debug\Server.exe
+C:\Users\ooo\Source\Repos\kosticaleksandra\prmi_projekat\Server\obj\Debug\Server.pdb

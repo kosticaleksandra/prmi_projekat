@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{81F8056D-CE56-441B-9F1F-FAA7BADA4E8D}</ProjectGuid>
+    <ProjectGuid>{857AF627-C4B5-4ECE-B524-B9D3764A85D8}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>Klijent</RootNamespace>
     <AssemblyName>Klijent</AssemblyName>
@@ -50,8 +50,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Klase\Klase.csproj">
-      <Project>{adfa995b-b459-4419-801b-2fbc15a95a0a}</Project>
+    <ProjectReference Include="..\ClassLibrary\Klase.csproj">
+      <Project>{7492e55d-f08e-485f-965e-e73efb342646}</Project>
       <Name>Klase</Name>
     </ProjectReference>
   </ItemGroup>
