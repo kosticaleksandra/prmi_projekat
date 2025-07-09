@@ -2,8 +2,9 @@
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
-using Klase; // ako si enum stavila u poseban folder
-namespace KlijentApp
+using Klase; 
+
+namespace Klijent
 {
     class Klijent
     {

@@ -1,5 +1,4 @@
-﻿//SERVER
-using System;
+﻿using System;
 using System.Collections.Concurrent;
 using System.Linq;
 using System.Net;
@@ -8,7 +7,6 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using Klase;
-//using Server.Enums;
 
 namespace Server
 {
@@ -31,15 +29,7 @@ namespace Server
             }
 
             if (protocol == Protocol.TCP)
-            {
-                /* int tcpPort = 5000;
-                 TcpListener tcpListener = new TcpListener(IPAddress.Any, tcpPort);
-                 tcpListener.Start();
-
-                 Console.WriteLine($"TCP server pokrenut na adresi: {GetLocalIPAddress()} port: {tcpPort}");
-                 Console.WriteLine("Čekam TCP konekcije...");
-                */
-
+            { 
 
                 //dodala novo 
 
@@ -78,13 +68,6 @@ namespace Server
             }
             else // UDP
             {
-                /*int udpPort = 6000;
-                UdpClient udpClient = new UdpClient(udpPort);
-
-                Console.WriteLine($"UDP server pokrenut na adresi: {GetLocalIPAddress()} port: {udpPort}");
-                */
-
-                //moja izmenaaaaaaaaaaaaaaaaaaaaaaaa
                 int udpPort = 6000;
                 UdpClient udpClient = new UdpClient(udpPort);
 
@@ -118,8 +101,8 @@ namespace Server
                     return ip.ToString();
 
             return "127.0.0.1";
-         }*/
+         }
 
-        }
     }
 }
+
