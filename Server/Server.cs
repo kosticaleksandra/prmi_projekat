@@ -3,10 +3,10 @@ using System.Collections.Concurrent;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
-using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using Klase;
+using System.Collections.Generic;
 
 namespace Server
 {
@@ -14,6 +14,11 @@ namespace Server
     {
         static void Main(string[] args)
         {
+            // [KT1 - Zadatak 2] Konfiguracija serverske aplikacije:
+            //  - Izbor protokola (TCP/UDP)
+            //  - Otvaranje odgovarajuće utičnice
+            //  - Ispis IP adrese i porta na kojima server čeka konekcije/pakete
+            Console.Title = "SERVER";
             Console.WriteLine("Izaberi protokol za komunikaciju (TCP/UDP):");
             string input = Console.ReadLine()?.Trim().ToUpper();
 
@@ -29,45 +34,73 @@ namespace Server
             }
 
             if (protocol == Protocol.TCP)
-            { 
+            {
 
-                //dodala novo 
-
+                // [KT2 - Zadatak 7] Istovremeni, neblokirajući rad sa više klijenata (Select)
                 int tcpPort = 5000;
-                TcpListener tcpListener = new TcpListener(IPAddress.Any, tcpPort);
-                tcpListener.Start();
+                Socket listener = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                listener.Bind(new IPEndPoint(IPAddress.Any, tcpPort));
+                listener.Listen(10);
 
-                Console.WriteLine($"TCP server pokrenut na adresi: {GetLocalIPAddress()} port: {tcpPort}");
-                Console.WriteLine("Čekam TCP konekcije...");
+                Console.WriteLine($"[TCP SERVER] Pokrenut na {GetLocalIPAddress()}:{tcpPort}");
 
-                while (true)  // beskonačna petlja koja prima konekcije i komunicira
+                List<Socket> aktivniKlijenti = new List<Socket>();
+
+                while (true)
                 {
-                    TcpClient klijent = tcpListener.AcceptTcpClient(); // čeka novu konekciju
-                    Console.WriteLine("Klijent povezan.");
+                    List<Socket> zaCitanje = new List<Socket>(aktivniKlijenti);
+                    zaCitanje.Add(listener); // dodaj i glavni listener
 
-                    NetworkStream stream = klijent.GetStream();
+                    Socket.Select(zaCitanje, null, null, 1000 * 1000); // timeout 1s
 
-                    // Čitanje poruke od klijenta
-                    byte[] buffer = new byte[1024];
-                    int bytesRead = stream.Read(buffer, 0, buffer.Length);
-                    string poruka = Encoding.UTF8.GetString(buffer, 0, bytesRead);
-                    Console.WriteLine("Primljena poruka: " + poruka);
+                    foreach (Socket s in zaCitanje)
+                    {
+                        if (s == listener)
+                        {
+                            // Novi klijent
+                            Socket noviKlijent = listener.Accept();
+                            aktivniKlijenti.Add(noviKlijent);
+                            Console.WriteLine($"[TCP SERVER] Novi klijent povezan: {noviKlijent.RemoteEndPoint}");
+                        }
+                        else
+                        {
+                            // Postojeći klijent šalje podatke
+                            byte[] buffer = new byte[1024];
+                            int bajtova = 0;
 
-                    // Slanje odgovora nazad klijentu
-                    string odgovor = "Server je primio poruku: " + poruka;
-                    byte[] odgovorBytes = Encoding.UTF8.GetBytes(odgovor);
-                    stream.Write(odgovorBytes, 0, odgovorBytes.Length);
+                            try
+                            {
+                                bajtova = s.Receive(buffer);
+                            }
+                            catch
+                            {
+                                bajtova = 0;
+                            }
 
-                    // Zatvaranje konekcije sa klijentom
-                    stream.Close();
-                    klijent.Close();
+                            if (bajtova <= 0)
+                            {
+                                Console.WriteLine($"[TCP SERVER] Klijent se odjavio: {s.RemoteEndPoint}");
+                                aktivniKlijenti.Remove(s);
+                                s.Close();
+                                continue;
+                            }
+
+                            // [KT1 - Zadatak 10] Prijem poruke i slanje odgovora klijentu
+                            string poruka = Encoding.UTF8.GetString(buffer, 0, bajtova);
+                            Console.WriteLine($"[TCP SERVER] Poruka od {s.RemoteEndPoint}: {poruka}");
+
+                            // Odgovor klijentu
+                            string odgovor = "Server je primio poruku: " + poruka;
+                            byte[] odgovorBytes = Encoding.UTF8.GetBytes(odgovor);
+                            s.Send(odgovorBytes);
+                        }
+                    }
                 }
-
-
 
             }
             else // UDP
             {
+                // [KT1 - Zadatak 2 i 10] UDP server: prijem datagrama i slanje odgovora pošiljaocu
                 int udpPort = 6000;
                 UdpClient udpClient = new UdpClient(udpPort);
 
@@ -86,14 +119,10 @@ namespace Server
 
                     udpClient.Send(odgovorBytes, odgovorBytes.Length, remoteEP);
                 }
-
-                //zavrsen dodatak novi
             }
-
-            Console.WriteLine("Pritisni Enter za izlaz...");
-            Console.ReadLine();
         }
 
+        // [Pomoćna funkcija] Ispis lokalne IPv4 adrese (koristi se u Zad. 2)
         private static string GetLocalIPAddress()
         {
             foreach (var ip in Dns.GetHostEntry(Dns.GetHostName()).AddressList)
