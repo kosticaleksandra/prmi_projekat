@@ -14,10 +14,7 @@ namespace Server
     {
         static void Main(string[] args)
         {
-            // [KT1 - Zadatak 2] Konfiguracija serverske aplikacije:
-            //  - Izbor protokola (TCP/UDP)
-            //  - Otvaranje odgovarajuće utičnice
-            //  - Ispis IP adrese i porta na kojima server čeka konekcije/pakete
+            
             Console.Title = "SERVER";
             Console.WriteLine("Izaberi protokol za komunikaciju (TCP/UDP):");
             string input = Console.ReadLine()?.Trim().ToUpper();
@@ -36,7 +33,10 @@ namespace Server
             if (protocol == Protocol.TCP)
             {
 
-                // [KT2 - Zadatak 7] Istovremeni, neblokirajući rad sa više klijenata (Select)
+
+
+
+                // neblokirajući rad sa više klijenata (Select)
                 int tcpPort = 5000;
                 Socket listener = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
                 listener.Bind(new IPEndPoint(IPAddress.Any, tcpPort));
@@ -85,11 +85,14 @@ namespace Server
                                 continue;
                             }
 
-                            // [KT1 - Zadatak 10] Prijem poruke i slanje odgovora klijentu
+
+
+
+                           
                             string poruka = Encoding.UTF8.GetString(buffer, 0, bajtova);
                             Console.WriteLine($"[TCP SERVER] Poruka od {s.RemoteEndPoint}: {poruka}");
 
-                            // Odgovor klijentu
+                            
                             string odgovor = "Server je primio poruku: " + poruka;
                             byte[] odgovorBytes = Encoding.UTF8.GetBytes(odgovor);
                             s.Send(odgovorBytes);
@@ -100,7 +103,7 @@ namespace Server
             }
             else // UDP
             {
-                // [KT1 - Zadatak 2 i 10] UDP server: prijem datagrama i slanje odgovora pošiljaocu
+                
                 int udpPort = 6000;
                 UdpClient udpClient = new UdpClient(udpPort);
 
@@ -122,7 +125,7 @@ namespace Server
             }
         }
 
-        // [Pomoćna funkcija] Ispis lokalne IPv4 adrese (koristi se u Zad. 2)
+        // [Pomoćna funkcija] Ispis lokalne IPv4 adrese 
         private static string GetLocalIPAddress()
         {
             foreach (var ip in Dns.GetHostEntry(Dns.GetHostName()).AddressList)

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
-using System.Threading.Tasks;
 using System.Threading;
+using System.Threading.Tasks;
 using PcapDotNet.Core;
 using PcapDotNet.Packets;
 using PcapDotNet.Packets.Ethernet;
@@ -12,7 +12,7 @@ namespace PacketSniffer
 {
     internal class PacketSniffer
     {
-        // [KT2 - Zadatak 9] STATISTIKA: broj TCP/UDP paketa + najduži aplikativni payload
+
         static int _tcpCount = 0, _udpCount = 0;
         static int _maxPayloadLen = 0;
         static string _maxPayloadAscii = "";
@@ -20,107 +20,119 @@ namespace PacketSniffer
 
         static void Main(string[] args)
         {
-            // [KT1 - Zadatak 4] Pokretanje/prekid presretanja (start/stop)
+            
             Console.Title = "PACKET SNIFFER";
-            Console.WriteLine("Želite li da pokrenete presretanje paketa? (da/ne)");
+            Console.OutputEncoding = Encoding.UTF8;
+
+            Console.Write("Želite li da pokrenete presretanje paketa? (da/ne): ");
             string odgovor = Console.ReadLine()?.Trim().ToLower();
             if (odgovor != "da")
             {
                 Console.WriteLine("Presretanje nije pokrenuto.");
+                Console.WriteLine("Pritisni Enter za izlaz...");
+                Console.ReadLine();
                 return;
             }
 
-            // [KT1 - Zadatak 4] Opciono filtriranje (pcap filter sintaksa)
-            Console.WriteLine("Unesite filter (npr. ip src 192.168.1.1, port 80) ili pritisnite Enter za bez filtera:");
+           
+            Console.WriteLine("Unesite filter (npr. tcp port 5000) ili pritisnite Enter za bez filtera:");
             string filter = Console.ReadLine();
+            if (!string.IsNullOrWhiteSpace(filter))
+                filter = filter.Replace(",", " and "); 
 
-            // [KT1 - Zadatak 4] Izbor mrežnog interfejsa za presretanje
+           
             var devices = LivePacketDevice.AllLocalMachine;
             if (devices.Count == 0)
             {
                 Console.WriteLine("Nema dostupnih mrežnih uređaja.");
+                Console.WriteLine("Pritisni Enter za izlaz...");
+                Console.ReadLine();
                 return;
             }
 
             Console.WriteLine("Izaberite mrežni uređaj:");
             for (int i = 0; i < devices.Count; i++)
                 Console.WriteLine($"{i}: {devices[i].Name} - {devices[i].Description}");
-
             int izbor = int.Parse(Console.ReadLine() ?? "0");
             var selectedDevice = devices[izbor];
 
-            // [KT1 - Zadatak 4] Otvaranje interfejsa u promiscuous režimu + timeout
-            using (var communicator = selectedDevice.Open(
-                       65536,
-                       PacketDeviceOpenAttributes.Promiscuous,
-                       1000)) // timeout
+            
+            using (var communicator = selectedDevice.Open(65536,
+                                                          PacketDeviceOpenAttributes.Promiscuous,
+                                                          1000))
             {
-                // [KT1 - Zadatak 4] Primena filtera (ako je naveden)
+                // Primena filtera
                 if (!string.IsNullOrWhiteSpace(filter))
-                    communicator.SetFilter(filter);
+                {
+                    try { communicator.SetFilter(filter); }
+                    catch (ArgumentException ex)
+                    {
+                        Console.WriteLine("Nevažeći filter – nastavljam bez filtera.");
+                        Console.WriteLine($"Detalji: {ex.Message}");
+                    }
+                }
 
                 Console.WriteLine("Presretanje paketa pokrenuto. Pritisnite Enter za prekid.");
 
-                // [KT1 - Zadatak 4] ENTER prekid:
-                // - ReceivePackets radi u pozadinskom Task-u
-                // - Enter -> communicator.Break() uredno prekida capture
+
                 var captureTask = Task.Run(() =>
                 {
-                    try
-                    {
-                        communicator.ReceivePackets(0, PacketHandler);
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine($"Greška tokom presretanja: {ex.Message}");
-                    }
+                    try { communicator.ReceivePackets(0, PacketHandler); }
+                    catch (Exception ex) { Console.WriteLine($"Greška tokom presretanja: {ex.Message}"); }
                 });
 
-                Console.ReadLine();  // čekanje Enter
-                communicator.Break(); // signal za prekid ReceivePackets-a
+                Console.ReadLine();   // čeka Enter
+                communicator.Break(); // uredan prekid
+                try { captureTask.Wait(); } catch { /* ignore */ }
 
-                try { captureTask.Wait(); }
-                catch (AggregateException ae)
-                {
-                    foreach (var e in ae.InnerExceptions)
-                        Console.WriteLine($"Greška u niti: {e.Message}");
-                }
 
-                // [KT2 - Zadatak 9] Ispis statistike nakon prekida presretanja
-                Console.WriteLine("=== STATISTIKA (posle prekida) ===");
+
+
+
+
+                
+                Console.WriteLine("\n=== STATISTIKA (posle prekida) ===");
                 Console.WriteLine($"TCP paketa:       {_tcpCount}");
                 Console.WriteLine($"UDP paketa:       {_udpCount}");
+                if (_tcpCount > _udpCount) Console.WriteLine("➜ Više je bilo TCP paketa.");
+                else if (_udpCount > _tcpCount) Console.WriteLine("➜ Više je bilo UDP paketa.");
+                else Console.WriteLine("➜ Jednak broj TCP i UDP paketa.");
+
                 if (_maxPayloadLen > 0)
                 {
-                    Console.WriteLine($"Najduži aplikativni podatak ({_maxPayloadLen} B):");
+                    Console.WriteLine($"\nNajduži aplikativni podatak ({_maxPayloadLen} B):");
                     Console.WriteLine(_maxPayloadAscii);
                 }
                 else
                 {
-                    Console.WriteLine("Nije detektovan aplikativni payload.");
+                    Console.WriteLine("\nNije detektovan aplikativni payload.");
                 }
             }
+
+            
+            Console.WriteLine("\nGotovo. Pritisni Enter za izlaz...");
+            Console.ReadLine();
         }
 
-        // [KT1 - Zadatak 6] Osnovna interpretacija paketa (MAC, IP, protokol, portovi)
-        // [KT2 - Zadatak 8] Dodatna polja (TCP kontrolni bitovi, veličina zaglavlja, payload + dužina, IPv4 checksum/TTL)
+
+
+
+
+
+        
         private static void PacketHandler(Packet packet)
         {
             Console.WriteLine($"Presretnut paket: {packet.Timestamp}, dužina: {packet.Length}");
 
-            // [KT1 - Z6] MAC adrese (Ethernet zaglavlje)
+           
             EthernetDatagram eth = packet.Ethernet;
             if (eth != null)
             {
                 Console.WriteLine($"MAC pošiljalac: {eth.Source}");
                 Console.WriteLine($"MAC primalac: {eth.Destination}");
             }
-            else
-            {
-                Console.WriteLine("Nema Ethernet zaglavlja.");
-            }
+            else Console.WriteLine("Nema Ethernet zaglavlja.");
 
-            // [KT1 - Z6] IPv4: izvor/odredište + identifikacija transportnog protokola
             IpV4Datagram ip = packet.Ethernet?.IpV4;
             if (ip != null)
             {
@@ -130,17 +142,14 @@ namespace PacketSniffer
 
                 if (ip.Protocol == IpV4Protocol.Tcp)
                 {
-                    TcpDatagram tcp = ip.Tcp;
+                    Interlocked.Increment(ref _tcpCount);
+                    var tcp = ip.Tcp;
                     if (tcp != null)
                     {
-                        // [KT2 - Z9] Statistika: broj TCP paketa
-                        Interlocked.Increment(ref _tcpCount);
-
-                        // [KT1 - Z6] TCP portovi
                         Console.WriteLine($"TCP port pošiljaoca: {tcp.SourcePort}");
                         Console.WriteLine($"TCP port primaoca: {tcp.DestinationPort}");
 
-                        // [KT2 - Z8] TCP kontrolni bitovi (lep, poimenice ispis)
+                       
                         Console.Write("TCP kontrolni bitovi: ");
                         if (tcp.ControlBits.HasFlag(TcpControlBits.Synchronize)) Console.Write("SYN ");
                         if (tcp.ControlBits.HasFlag(TcpControlBits.Acknowledgment)) Console.Write("ACK ");
@@ -149,20 +158,20 @@ namespace PacketSniffer
                         if (tcp.ControlBits.HasFlag(TcpControlBits.Push)) Console.Write("PSH ");
                         if (tcp.ControlBits.HasFlag(TcpControlBits.Urgent)) Console.Write("URG ");
                         Console.WriteLine();
-
-                        // [KT2 - Z8] Veličina TCP zaglavlja (u bajtovima)
                         Console.WriteLine($"Veličina TCP zaglavlja: {tcp.HeaderLength} bajtova");
 
-                        // [KT2 - Z8] Aplikativni podaci (TCP payload): ASCII + dužina
-                        var tcpPayload = tcp.Payload;
-                        if (tcpPayload != null && tcpPayload.Length > 0)
+
+
+
+
+                        var payload = tcp.Payload;
+                        if (payload != null && payload.Length > 0)
                         {
-                            var bytes = tcpPayload.ToMemoryStream().ToArray();
+                            var bytes = payload.ToMemoryStream().ToArray();
                             var ascii = Encoding.ASCII.GetString(bytes);
                             Console.WriteLine($"Aplikativni podaci (ASCII): {ascii}");
                             Console.WriteLine($"Dužina aplikativnih podataka: {bytes.Length} bajta");
 
-                            // [KT2 - Z9] Najduži aplikativni payload (globalna statistika)
                             lock (_maxLock)
                             {
                                 if (bytes.Length > _maxPayloadLen)
@@ -172,34 +181,26 @@ namespace PacketSniffer
                                 }
                             }
                         }
-                        else
-                        {
-                            Console.WriteLine("Nema aplikativnih podataka.");
-                        }
+                        else Console.WriteLine("Nema aplikativnih podataka.");
                     }
                 }
                 else if (ip.Protocol == IpV4Protocol.Udp)
                 {
-                    UdpDatagram udp = ip.Udp;
+                    Interlocked.Increment(ref _udpCount);
+                    var udp = ip.Udp;
                     if (udp != null)
                     {
-                        // [KT2 - Z9] Statistika: broj UDP paketa
-                        Interlocked.Increment(ref _udpCount);
-
-                        // [KT1 - Z6] UDP portovi
                         Console.WriteLine($"UDP port pošiljaoca: {udp.SourcePort}");
                         Console.WriteLine($"UDP port primaoca: {udp.DestinationPort}");
 
-                        // [KT2 - Z8] Aplikativni podaci (UDP payload): ASCII + dužina
-                        var udpPayload = udp.Payload;
-                        if (udpPayload != null && udpPayload.Length > 0)
+                        var payload = udp.Payload;
+                        if (payload != null && payload.Length > 0)
                         {
-                            var bytes = udpPayload.ToMemoryStream().ToArray();
+                            var bytes = payload.ToMemoryStream().ToArray();
                             var ascii = Encoding.ASCII.GetString(bytes);
                             Console.WriteLine($"Aplikativni podaci (ASCII): {ascii}");
                             Console.WriteLine($"Dužina aplikativnih podataka: {bytes.Length} bajta");
 
-                            // [KT2 - Z9] Najduži aplikativni payload (globalna statistika)
                             lock (_maxLock)
                             {
                                 if (bytes.Length > _maxPayloadLen)
@@ -209,10 +210,7 @@ namespace PacketSniffer
                                 }
                             }
                         }
-                        else
-                        {
-                            Console.WriteLine("Nema aplikativnih podataka.");
-                        }
+                        else Console.WriteLine("Nema aplikativnih podataka.");
                     }
                 }
                 else
@@ -220,15 +218,11 @@ namespace PacketSniffer
                     Console.WriteLine("Nije TCP ni UDP protokol.");
                 }
 
-                // [KT2 - Z8] IPv4: za "duže" pakete ispiši checksum; za kraće TTL
+                
                 if (ip.TotalLength > 50)
-                {
                     Console.WriteLine($"IPv4 kontrolna suma: 0x{ip.HeaderChecksum:X}");
-                }
                 else
-                {
                     Console.WriteLine($"IPv4 TTL: {ip.Ttl}");
-                }
             }
             else
             {

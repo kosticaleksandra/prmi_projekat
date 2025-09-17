@@ -11,8 +11,6 @@ namespace Klijent
         static void Main()
         {
 
-            // [KT1 - Zadatak 3] Konfiguracija klijentske aplikacije:
-            //  - Izbor protokola (TCP/UDP)
             Console.Title = "KLIJENT";
 
             Console.WriteLine("Izaberi protokol za komunikaciju:");
@@ -22,7 +20,8 @@ namespace Klijent
             string unos = Console.ReadLine();
             Protocol protokol = (unos == "1") ? Protocol.TCP : Protocol.UDP;
            
-            // [KT1 - Zadatak 5] Unos server IP i porta na koje će se klijent povezati/ slati poruke
+            
+
             Console.Write("Unesi IP adresu servera (npr. 127.0.0.1): ");
             string ip = Console.ReadLine();
             Console.Write("Unesi broj porta servera: ");
@@ -32,16 +31,14 @@ namespace Klijent
             {
                 try
                 {
-                    // [KT1 - Zadatak 3] Za TCP klijent uspostavlja vezu sa serverom
+                    
                     TcpClient tcpKlijent = new TcpClient();
                     tcpKlijent.Connect(ip, port); // Uspostavljanje konekcije
                     Console.WriteLine("Uspostavljena TCP konekcija sa serverom.");
-                    // Ovde možeš dodati komunikaciju ako želiš
+                   
 
-                    // [KT1 - Zadatak 5] Slanje poruke serveru i ispis odgovora (komunikacija klijent↔server)
                     NetworkStream stream = tcpKlijent.GetStream();
 
-                    //5 zad
                     Console.Write("Unesi poruku za slanje serveru: ");
                     string porukaZaSlanje = Console.ReadLine();
                     byte[] podaciZaSlanje = Encoding.UTF8.GetBytes(porukaZaSlanje);
@@ -55,7 +52,7 @@ namespace Klijent
 
                     stream.Close();
 
-                //kraj dodatka
+               
                     tcpKlijent.Close();
                 }
                 catch (Exception ex)
@@ -67,7 +64,7 @@ namespace Klijent
             {
                 try
                 {
-                    // [KT1 - Zadatak 3/5] UDP klijent bez uspostavljene TCP konekcije – šalje datagram
+                    
                     UdpClient udp = new UdpClient();
 
                     Console.Write("Unesi poruku za slanje UDP serveru: ");
@@ -77,7 +74,7 @@ namespace Klijent
                     udp.Send(podaciZaSlanje, podaciZaSlanje.Length, ip, port);
                     Console.WriteLine("Poruka poslata UDP serveru.");
 
-                    // [KT1 - Zadatak 5] Prijem odgovora od UDP servera
+                   
                     IPEndPoint serverEndPoint = new IPEndPoint(IPAddress.Any, 0);
 
                     byte[] primljeniPodaci = udp.Receive(ref serverEndPoint);
